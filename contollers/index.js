@@ -1,4 +1,5 @@
 const bcrypt = require('bcrypt');
+const passport = require('passport')
 
 const User = require('../models/userModel')
 
@@ -30,4 +31,13 @@ exports.signUp = async(req, res, next)=>{
     } catch (error) {
         next(error)
     }
+}
+
+exports.login =(req,res,next)=>{
+    const {count, name, _id} = req.user
+    res.json({user:{
+        count,
+        name,
+        _id
+    }})
 }
