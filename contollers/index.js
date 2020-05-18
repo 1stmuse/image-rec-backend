@@ -41,3 +41,20 @@ exports.login =(req,res,next)=>{
         _id
     }})
 }
+
+exports.uplaod = async(req,res,next)=>{
+    
+    try {
+        const user = await User.findById({_id:req.body.id})
+        if(!user){
+            const error = new Error('this user does not exist');
+            error.status= 400
+            next(error)
+        }
+        user.entries +=1
+        user.save()
+        .then(user=>res.json(user.entries))
+    } catch (error) {
+        next(`catch error ${error}`)
+    }
+}

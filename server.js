@@ -28,7 +28,7 @@ app.use(passport.initialize())
 app.use(passport.session())
 // app.use(express.static(path.join(__dirname,"../build")))
 
-const uri = process.env.ATLAS_URI
+const uri = process.env.ATLAS_URI;
 mongoose.connect(uri, {useNewUrlParser:true, useUnifiedTopology:true})
 .then(()=> console.log('DB connected'))
 .catch(err=> console.log('error connexting', err))
