@@ -14,7 +14,7 @@ const userSchema = new schema({
         type:String,
         required:true
     },
-    count:{
+    entries:{
         type: Number,
         required:false,
         default:0

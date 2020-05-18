@@ -34,9 +34,9 @@ exports.signUp = async(req, res, next)=>{
 }
 
 exports.login =(req,res,next)=>{
-    const {count, name, _id} = req.user
+    const {entries, name, _id} = req.user
     res.json({user:{
-        count,
+        entries,
         name,
         _id
     }})
